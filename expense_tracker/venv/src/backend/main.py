@@ -1,4 +1,5 @@
-from expense_tracker.venv.src.backend.expense import Expense, ExpenseTracker
+from expense_tracker.venv.src.backend.expense import Expense
+from expense_tracker.venv.src.backend.tracking import ExpenseTracker
 from datetime import datetime
 
 print("Welcome to SmartTrackers!")
@@ -27,25 +28,11 @@ def add_expense_from_user(tracker):
     description = input("Enter the description: ").strip()
     expense = Expense(amount, category, date, description)
     tracker.add_expense(expense)
-tracker = ExpenseTracker()
-
-print(f"Total expenses: {tracker.total_expense()}CAD")
-print(f"Expenses by category: {tracker.expenses_by_category()}")
-print(f"Total expense for Food: {tracker.total_expense_by_category('Food')}CAD")
-print(f"Total expense for Transport: {tracker.total_expense_by_category('Transport')}CAD")
-print(f"Total expense for Entertainment: {tracker.total_expense_by_category('Entertainment')}CAD")
-print(f"Total expense for Bills: {tracker.total_expense_by_category('Bills')}CAD")
-
-
-# Extract and print the date for the Food category
-food_expenses = [expense for expense in tracker.expenses if expense.category == 'Food']
-if food_expenses:
-    date = food_expenses[0].date
-    print(f"Total expense for Food: {tracker.total_expense_by_category('Food')}CAD on {date}")
-else:
-    print("No Food expenses found.")
+    print("=====================")
+    print("The expense is added!")
 
 def main() -> None:
+    tracker = ExpenseTracker()
     while True:
         print("1. Add an expense")
         print("2. View expenses")
