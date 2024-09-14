@@ -54,3 +54,4 @@ class Expense:
         if not description:
             raise ValueError("Missing description")
         self._description = description
+
