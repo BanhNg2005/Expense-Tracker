@@ -12,12 +12,14 @@ def add_expense_from_user(tracker):
             break
         except ValueError:
             print("Invalid amount! Please enter a valid number")
+    
     while True:
-        category = input("Enter the category (Food, Transport, Entertainment, Bills, Others): ").strip()
-        if category not in ["Food", "Transport", "Entertainment", "Bills", "Others"]:
+        category = input("Enter the category (Food, Transport, Entertainment, Bills, Others): ").strip().lower()
+        if category not in ["food", "transport", "entertainment", "bills", "others"]:
             print("Invalid category")
         else:
             break
+    
     while True:
         date = input("Enter the date (YYYY-MM-DD): ").strip()
         try:
@@ -25,9 +27,12 @@ def add_expense_from_user(tracker):
             break
         except ValueError:
             print("Invalid date format, should be YYYY-MM-DD")
+    
     description = input("Enter the description: ").strip()
+    
+    # Create an Expense object, which will validate the inputs
     expense = Expense(amount, category, date, description)
-    tracker.add_expense(expense)
+    tracker.add_expense(expense)  # Add the expense to the tracker
     print("=====================")
     print("The expense is added!")
 
