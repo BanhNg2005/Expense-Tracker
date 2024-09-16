@@ -14,8 +14,8 @@ def add_expense_from_user(tracker):
             print("Invalid amount! Please enter a valid number")
     
     while True:
-        category = input("Enter the category (Food, Transport, Entertainment, Bills, Others): ").strip().lower()
-        if category not in ["food", "transport", "entertainment", "bills", "others"]:
+        category = input("Enter the category (Food, Transport, Entertainment, Bills, Others): ").strip().title()
+        if category not in ["Food", "Transport", "Entertainment", "Bills", "Others"]:
             print("Invalid category")
         else:
             break
