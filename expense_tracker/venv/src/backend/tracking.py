@@ -6,14 +6,6 @@ class ExpenseTracker:
     def add_expense(self, expense):
         # add an expense to the list of expenses
         self.expenses.append(expense)
-
-    def expenses_by_category(self):
-        categories = {}
-        for expense in self.expenses:
-            if expense.category not in categories:
-                categories[expense.category] = 0
-            categories[expense.category] += expense.amount
-        return categories
     
     def total_expense_by_category(self, category):
         # return the sum of all the expenses in a particular category
